@@ -1,0 +1,3 @@
+test "the empty contact sheet opens"
+  expect tree has "shutter"
+  expect text "empty" == "No photograph yet"
