@@ -1,26 +1,4 @@
-import type { Answer, Result, Sources } from './app.contract.d.ts';
-import { authGrants, authSources } from './auth';
-import { languages } from './locales.generated';
-import { convex } from '@exact/convex';
-import { getFunctionName, makeFunctionReference } from 'convex/server';
-import { convexToJson, jsonToConvex } from 'convex/values';
-
+import type { Answer } from './app.contract.d.ts';
 const origin = import.meta.env.CONVEX_ORIGIN;
-export const grants = `net.websocket ${origin}\n${authGrants}`;
-
-const client = convex(origin, { getFunctionName, convexToJson, jsonToConvex });
-const getCounter = makeFunctionReference<'query', Record<string, never>, Result<'counter'>>('counter:get');
-const incrementCounter = makeFunctionReference<'mutation', Record<string, never>, null>('counter:increment');
-
-const sources: Sources = {
-  ...authSources,
-  locales: () => ({ choices: languages }),
-  live: () => client.live(),
-  counter: ([rev]) => client.query(rev, getCounter, {}),
-  increment: async () => {
-    await client.mutation(incrementCounter, {});
-    return { ok: true };
-  },
-};
-export const answer: Answer = (source, args, store, storage, native) =>
-  sources[source](args, store, storage, native);
+export const grants = [`net.websocket ${origin}`, 'device.camera cameraPurpose', 'fs.read app:/tmp', 'fs.write app:/tmp'].join('\n');
+export const answer: Answer = (name) => { throw new Error(`Unknown source ${name}`); };

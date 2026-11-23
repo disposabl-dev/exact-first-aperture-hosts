@@ -7,6 +7,8 @@
   },
   "dependencies": {
     "@exact/convex": "file:.exact/checkout/packages/convex",
-    "convex": "1.51.0"
+    "convex": "1.51.0",
+    "@exact/camera": "file:.exact/checkout/packages/camera",
+    "@exact/media-capture": "file:.exact/checkout/packages/media-capture"
   }
 }
