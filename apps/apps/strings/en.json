@@ -43,5 +43,6 @@
   "counter.saving": "Saving…",
   "counter.title": "Live counter",
   "language.picker": "Language, {name}",
-  "language.system": "Use device language"
+  "language.system": "Use device language",
+  "cameraPurpose": "Take a photo for your contact sheet."
 }

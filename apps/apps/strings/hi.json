@@ -43,5 +43,6 @@
   "counter.saving": "सेव हो रहा है…",
   "counter.title": "लाइव काउंटर",
   "language.picker": "भाषा, {name}",
-  "language.system": "डिवाइस की भाषा इस्तेमाल करें"
+  "language.system": "डिवाइस की भाषा इस्तेमाल करें",
+  "cameraPurpose": "अपनी संपर्क शीट के लिए फ़ोटो लें।"
 }
